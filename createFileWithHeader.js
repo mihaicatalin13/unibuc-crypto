@@ -32,7 +32,7 @@ function createFileWithHeader(fileName, header, outputNumber) {
 
         const newContent = header + data;
 
-        fs.writeFile(__dirname + '/files_with_headers/file' + outputNumber + '.ppm', newContent, 'utf-8', (err) => {
+        fs.writeFile(__dirname + '/files_with_headers/file' + outputNumber + '.ppm', newContent, 'ascii', (err) => {
             if (err) {
                 console.error('Error writing the file:', err);
             } else {
