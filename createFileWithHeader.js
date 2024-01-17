@@ -24,13 +24,14 @@ const fileNames = [
 
 function createFileWithHeader(fileName, header, outputNumber) {
 
-    fs.readFile(__dirname + '/encrypted_files/' + fileName, 'utf-8', (err, data) => {
+    fs.readFile(__dirname + '/encrypted_files/' + fileName, 'ascii', (err, data) => {
         if (err) {
             console.error('Error reading the file:', err);
             return;
         }
 
         const newContent = header + data;
+
         fs.writeFile(__dirname + '/files_with_headers/file' + outputNumber + '.ppm', newContent, 'utf-8', (err) => {
             if (err) {
                 console.error('Error writing the file:', err);
@@ -51,4 +52,11 @@ for (let i = 0; i < fileNames.length; ++i) {
 }
 
 // output files that make sense:
-// file 18 - butterfly
+// file 1 with header 3 - heart (file2)
+// file 2 with header 8 - letter L (file15)
+// file 3 with header 7 - letter O (file22)
+// file 4 with header 5 - letter V (file28)
+// file 5 with header 1 - letter E (file32)
+// file 6 with header 4 - letter y (file43)
+// file 7 with header 2 - letter o (file49)
+// file 8 with header 6 - letter u (file61)
